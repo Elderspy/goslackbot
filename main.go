@@ -3,14 +3,13 @@ package main
 import (
 	"errors"
 	"fmt"
-	"github.com/Elderspy/goslackbot/helpers"
+	"./helpers"
 	"os"
 	"strings"
 )
 
 func main() {
 	fmt.Println(os.Args)
-	fmt.Println("dicks")
 	if len(os.Args) != 2 {
 		panic(errors.New("You need to pass a token"))
 	}
@@ -27,8 +26,8 @@ func main() {
 		if m.Type == "message" {
 			parts := strings.Fields(m.Text)
 			fmt.Println(parts)
-			if parts[0] == "butts" {
-				m.Text = "I like big butts and I can not lie."
+			if parts[0] == "test" {
+				m.Text = "I don't do anything useful yet"
 				helpers.SendMessage(ws, m)
 			}
 		}
